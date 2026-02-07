@@ -1,14 +1,34 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import GridBackground from './components/GridBackground.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
-import DeviceOutline from './components/DeviceOutline.vue'
-import FeatureSection from './components/FeatureSection.vue'
+import ModelViewer from './components/ModelViewer.vue'
 import SpecsSection from './components/SpecsSection.vue'
 import CtaSection from './components/CtaSection.vue'
 import FeaturesListSection from './components/FeaturesListSection.vue'
 import MailingSection from './components/MailingSection.vue'
 import FloatingButton from './components/FloatingButton.vue'
+
+const modelScrollProgress = ref(0)
+const modelSection = ref(null)
+
+function onScroll() {
+  if (!modelSection.value) return
+  const rect = modelSection.value.getBoundingClientRect()
+  const sectionH = modelSection.value.scrollHeight - window.innerHeight
+  if (sectionH <= 0) return
+  const rawProgress = -rect.top / sectionH
+  modelScrollProgress.value = Math.max(0, Math.min(1, rawProgress))
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll, { passive: true })
+  onScroll()
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <template>
@@ -17,34 +37,14 @@ import FloatingButton from './components/FloatingButton.vue'
   <FloatingButton />
   <main>
     <HeroSection />
-    <DeviceOutline />
-    <FeatureSection
-      title-number="10"
-      title-text="TRACKS"
-      description="Dieci tracce audio indipendenti con controllo individuale. Fader lineari da 75mm, VU meter LED RGB per monitoring in tempo reale. Registrazione WAV 24-bit/48kHz."
-      label="FEATURE 1/3"
-      placeholder="FEATURE PHOTO 1"
-      :image-left="true"
-      :animate-config="{ rotateXRange: [-12, 0, 8], rotateYRange: [25, 0, -15], scaleRange: [0.65, 1, 0.9] }"
-    />
-    <FeatureSection
-      title-number="3 MIDI"
-      title-text="OUTPUTS"
-      description="Tre uscite MIDI 5-pin DIN completamente indipendenti. Sincronizza synth modulari, drum machine ed effetti esterni con i tuoi loop. Controllo MIDI CC personalizzabile."
-      label="FEATURE 2/3"
-      placeholder="FEATURE PHOTO 2"
-      :image-left="false"
-      :animate-config="{ rotateXRange: [-10, 0, 12], rotateYRange: [-20, 0, 18], scaleRange: [0.6, 1, 0.85] }"
-    />
-    <FeatureSection
-      title-number="NO"
-      title-text="SCREEN"
-      description="Interfaccia completamente fisica. Zero menu, zero distrazione. Controllo immediato con fader, encoder rotativi, toggle switch e LED multicolore. Workflow tattile e intuitivo."
-      label="FEATURE 3/3"
-      placeholder="FEATURE PHOTO 3"
-      :image-left="true"
-      :animate-config="{ rotateXRange: [-8, 0, 15], rotateYRange: [30, 0, -10], scaleRange: [0.7, 1, 0.88] }"
-    />
+
+    <!-- Sticky 3D model section: tall scroll area with fixed viewport -->
+    <div ref="modelSection" class="model-scroll-area">
+      <div class="model-sticky">
+        <ModelViewer :scroll-progress="modelScrollProgress" />
+      </div>
+    </div>
+
     <SpecsSection />
     <CtaSection />
     <FeaturesListSection />
@@ -56,5 +56,18 @@ import FloatingButton from './components/FloatingButton.vue'
 main {
   position: relative;
   z-index: 1;
+}
+
+.model-scroll-area {
+  position: relative;
+  height: 400vh; /* tall enough for 3 feature sections worth of scroll */
+}
+
+.model-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 </style>
