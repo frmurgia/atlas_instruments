@@ -1,0 +1,132 @@
+<template>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="hero-left">
+          <div class="hero-tagline proto-mono">NEW WAYS OF LOOPING</div>
+          <h1 ref="el" class="hero-title proto-mono" :style="style">
+            TEN<br>LOOPER
+          </h1>
+        </div>
+        <div ref="modelEl" class="model-number proto-mono" :style="modelStyle">TL-01</div>
+      </div>
+      <div class="hero-image">
+        <div ref="imageEl" class="hero-image-placeholder" :style="imageStyle">
+          [PRODUCT PHOTO]
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+import { useScrollAnimation } from '../composables/useScrollAnimation.js'
+
+const { el, style } = useScrollAnimation({
+  rotateXRange: [0, 0, 8],
+  rotateYRange: [0, 0, -5],
+  scaleRange: [1, 1, 0.92],
+  translateZRange: [0, 0, -80],
+  easing: 0.06
+})
+
+const { el: modelEl, style: modelStyle } = useScrollAnimation({
+  rotateXRange: [0, 0, 12],
+  rotateYRange: [0, 0, 10],
+  scaleRange: [1, 1, 0.85],
+  translateZRange: [0, 0, -120],
+  easing: 0.05
+})
+
+const { el: imageEl, style: imageStyle } = useScrollAnimation({
+  rotateXRange: [0, 0, 15],
+  rotateYRange: [0, 0, -3],
+  scaleRange: [1, 1, 0.88],
+  translateZRange: [0, 0, -150],
+  easing: 0.04
+})
+</script>
+
+<style scoped>
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3rem;
+  padding-top: 5rem;
+}
+
+.hero-inner {
+  max-width: 1400px;
+  width: 100%;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.hero-title {
+  font-size: clamp(5rem, 15vw, 12rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  will-change: transform;
+}
+
+.model-number {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  text-align: right;
+  will-change: transform;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 1200px;
+  perspective: 1200px;
+}
+
+.hero-image-placeholder {
+  width: 100%;
+  height: 500px;
+  background: var(--gray-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #999;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 1.5rem;
+    padding-top: 5rem;
+  }
+
+  .hero-top {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .model-number {
+    text-align: left;
+  }
+
+  .hero-image-placeholder {
+    height: 300px;
+  }
+}
+</style>

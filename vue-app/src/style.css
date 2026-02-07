@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'ProtoMono';
+  src: url('/ProtoMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --orange: #FF4500;
+  --black: #000000;
+  --white: #FFFFFF;
+  --gray-light: #F5F5F5;
+  --grid-color: rgba(0, 0, 0, 0.06);
+  --grid-size: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.4;
+  overflow-x: hidden;
+}
+
+h1, h2, h3,
+.proto-mono {
+  font-family: 'ProtoMono', monospace;
+}
