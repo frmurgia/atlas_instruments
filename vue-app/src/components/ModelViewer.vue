@@ -111,9 +111,9 @@ function initScene() {
   renderer.toneMapping = THREE.ACESFilmicToneMapping
   renderer.toneMappingExposure = 1.4
 
-  // Scene
+  // Scene — no background so the CSS mint + grid shows through
   scene = new THREE.Scene()
-  scene.background = new THREE.Color(0xA8D8BA)
+  renderer.setClearColor(0x000000, 0)
 
   // Camera
   camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100)
