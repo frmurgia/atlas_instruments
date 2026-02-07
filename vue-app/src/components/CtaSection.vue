@@ -31,7 +31,7 @@ const { el, style } = useScrollAnimation({
   align-items: center;
   justify-content: center;
   padding: 0 3rem;
-  background: var(--white);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -51,7 +51,7 @@ const { el, style } = useScrollAnimation({
 }
 
 .cta-title span {
-  color: var(--orange);
+  color: var(--yellow);
 }
 
 .signup-counter {

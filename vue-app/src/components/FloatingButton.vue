@@ -17,12 +17,12 @@ function scrollToMailing() {
   right: 3rem;
   width: 150px;
   height: 150px;
-  background: var(--orange);
+  background: var(--yellow);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--black);
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.05em;
@@ -35,7 +35,7 @@ function scrollToMailing() {
 
 .floating-button:hover {
   transform: scale(1.08);
-  box-shadow: 0 10px 40px rgba(255, 69, 0, 0.35);
+  box-shadow: 0 10px 40px rgba(232, 212, 77, 0.4);
 }
 
 @media (max-width: 768px) {

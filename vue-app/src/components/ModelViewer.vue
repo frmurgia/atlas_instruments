@@ -109,10 +109,11 @@ function initScene() {
   renderer.setSize(w, h)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
   renderer.toneMapping = THREE.ACESFilmicToneMapping
-  renderer.toneMappingExposure = 1.2
+  renderer.toneMappingExposure = 1.4
 
   // Scene
   scene = new THREE.Scene()
+  scene.background = new THREE.Color(0xA8D8BA)
 
   // Camera
   camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100)
@@ -127,7 +128,7 @@ function initScene() {
   dirLight1.position.set(3, 5, 4)
   scene.add(dirLight1)
 
-  const dirLight2 = new THREE.DirectionalLight(0xff6633, 0.6)
+  const dirLight2 = new THREE.DirectionalLight(0xfff4b0, 0.8)
   dirLight2.position.set(-3, 2, -2)
   scene.add(dirLight2)
 
@@ -144,10 +145,9 @@ function initScene() {
     model.traverse((child) => {
       if (child.isMesh) {
         child.material = new THREE.MeshStandardMaterial({
-          color: 0x1a1a1a,
-          metalness: 0.5,
-          roughness: 0.5,
-          envMapIntensity: 0.8,
+          color: 0xE8D44D,
+          metalness: 0.15,
+          roughness: 0.65,
         })
       }
     })
@@ -239,7 +239,7 @@ canvas {
 
 .overlay-label {
   font-size: 0.9rem;
-  color: var(--orange);
+  color: var(--yellow);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -255,7 +255,7 @@ canvas {
 }
 
 .overlay-title span {
-  color: var(--orange);
+  color: var(--yellow);
 }
 
 .overlay-desc {

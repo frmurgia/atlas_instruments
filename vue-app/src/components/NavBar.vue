@@ -1,7 +1,6 @@
 <template>
-  <nav :class="{ 'nav-scrolled': hasScrolled }">
+  <nav>
     <div class="logo proto-mono">
-      <div class="logo-circle"></div>
       <span>ATLAS INSTRUMENTS</span>
     </div>
     <a href="#preorder" class="btn-preorder proto-mono" @click.prevent="scrollTo('#preorder')">PRE-ORDER</a>
@@ -9,20 +8,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-
-const hasScrolled = ref(false)
-
-function onScroll() {
-  hasScrolled.value = window.scrollY > 50
-}
-
 function scrollTo(selector) {
   document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' })
 }
-
-onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
-onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <style scoped>
@@ -35,42 +23,22 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: transparent;
   z-index: 1000;
-  transition: padding 0.3s ease, box-shadow 0.3s ease;
-}
-
-nav.nav-scrolled {
-  padding: 1rem 3rem;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+  transition: padding 0.3s ease;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: 0.05em;
 }
 
-.logo-circle {
-  width: 32px;
-  height: 32px;
-  background: var(--orange);
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-nav:hover .logo-circle {
-  transform: scale(1.1);
-}
-
 .btn-preorder {
-  background: var(--orange);
-  color: var(--white);
+  background: var(--yellow);
+  color: var(--black);
   padding: 0.8rem 2rem;
   border: none;
   font-weight: 700;
@@ -85,15 +53,12 @@ nav:hover .logo-circle {
 
 .btn-preorder:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(232, 212, 77, 0.4);
 }
 
 @media (max-width: 768px) {
   nav {
     padding: 1.5rem 1.5rem;
-  }
-  nav.nav-scrolled {
-    padding: 1rem 1.5rem;
   }
 }
 </style>

@@ -104,8 +104,8 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 4rem 3rem;
-  background: var(--orange);
-  color: var(--white);
+  background: var(--yellow);
+  color: var(--black);
   overflow: hidden;
 }
 
@@ -131,7 +131,7 @@ onUnmounted(() => {
   display: flex;
   justify-content: space-between;
   padding: 2rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.15);
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
