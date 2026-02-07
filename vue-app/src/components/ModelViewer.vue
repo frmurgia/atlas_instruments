@@ -6,21 +6,21 @@
       <div v-if="activeSection === 0" class="overlay-text overlay-top" key="s0">
         <div class="overlay-label proto-mono">FEATURE 1/3</div>
         <h2 class="overlay-title proto-mono"><span>10</span><br>TRACKS</h2>
-        <p class="overlay-desc">Dieci tracce audio indipendenti con controllo individuale. Fader lineari da 75mm, VU meter LED RGB per monitoring in tempo reale. Registrazione WAV 24-bit/48kHz.</p>
+        <p class="overlay-desc">Ten independent audio tracks with individual control. 75mm linear faders, RGB LED VU meters for real-time monitoring. 24-bit/48kHz WAV recording.</p>
       </div>
     </transition>
     <transition name="fade">
       <div v-if="activeSection === 1" class="overlay-text overlay-back" key="s1">
         <div class="overlay-label proto-mono">FEATURE 2/3</div>
         <h2 class="overlay-title proto-mono"><span>3 MIDI</span><br>OUTPUTS</h2>
-        <p class="overlay-desc">Tre uscite MIDI 5-pin DIN completamente indipendenti. Sincronizza synth modulari, drum machine ed effetti esterni con i tuoi loop. Controllo MIDI CC personalizzabile.</p>
+        <p class="overlay-desc">Three fully independent MIDI 5-pin DIN outputs. Sync modular synths, drum machines and external effects with your loops. Customizable MIDI CC control.</p>
       </div>
     </transition>
     <transition name="fade">
       <div v-if="activeSection === 2" class="overlay-text overlay-quarter" key="s2">
         <div class="overlay-label proto-mono">FEATURE 3/3</div>
         <h2 class="overlay-title proto-mono"><span>NO</span><br>SCREEN</h2>
-        <p class="overlay-desc">Interfaccia completamente fisica. Zero menu, zero distrazione. Controllo immediato con fader, encoder rotativi, toggle switch e LED multicolore. Workflow tattile e intuitivo.</p>
+        <p class="overlay-desc">Fully physical interface. Zero menus, zero distractions. Immediate control with faders, rotary encoders, toggle switches and multicolor LEDs. Tactile and intuitive workflow.</p>
       </div>
     </transition>
   </div>
@@ -247,7 +247,7 @@ canvas {
 }
 
 .overlay-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;

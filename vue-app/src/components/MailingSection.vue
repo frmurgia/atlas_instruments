@@ -2,7 +2,7 @@
   <section class="cta-section" id="mailing">
     <div ref="el" class="cta-inner" :style="style">
       <h2 class="cta-title proto-mono">
-        <span>SIGN UP</span> TO THE MAILING LIST TO STAY IN TUNE WITH THE LAST UPDATES
+        <span>SIGN UP</span> TO THE MAILING LIST TO STAY IN TUNE WITH THE LATEST UPDATES
       </h2>
     </div>
   </section>
