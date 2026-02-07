@@ -1,0 +1,77 @@
+<template>
+  <section class="cta-section" id="preorder">
+    <div ref="el" class="cta-inner" :style="style">
+      <h2 class="cta-title proto-mono">
+        <span>PRE-ORDER</span> THE FIRST PRODUCTION RUN TO SECURE YOUR TENLOOPER
+      </h2>
+      <div class="signup-counter proto-mono">
+        &euro;399
+        <small>Q4 2026 delivery</small>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+import { useScrollAnimation } from '../composables/useScrollAnimation.js'
+
+const { el, style } = useScrollAnimation({
+  rotateXRange: [-8, 0, 6],
+  rotateYRange: [-10, 0, 8],
+  scaleRange: [0.75, 1, 0.92],
+  translateZRange: [-150, 0, -60],
+  easing: 0.07
+})
+</script>
+
+<style scoped>
+.cta-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3rem;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.cta-inner {
+  max-width: 1200px;
+  text-align: center;
+  will-change: transform;
+}
+
+.cta-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+.cta-title span {
+  color: var(--orange);
+}
+
+.signup-counter {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  margin-top: 4rem;
+}
+
+.signup-counter small {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 0 1.5rem;
+  }
+}
+</style>
