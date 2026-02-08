@@ -3,9 +3,9 @@
     <div class="hero-inner">
       <div class="hero-top">
         <div class="hero-left">
-          <div class="hero-tagline proto-mono">NEW WAYS OF LOOPING</div>
+          <div class="hero-tagline proto-mono">TEN WAYS OF LOOPING</div>
           <h1 ref="el" class="hero-title proto-mono" :style="style">
-            TEN<br>LOOPER
+            TEN<br>LOOP
           </h1>
         </div>
         <div ref="modelEl" class="model-number proto-mono" :style="modelStyle">TL-01</div>

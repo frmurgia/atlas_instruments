@@ -34,6 +34,16 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+::-moz-selection {
+  background: var(--yellow);
+  color: var(--black);
+}
+
 h1, h2, h3,
 .proto-mono {
   font-family: 'ProtoMono', monospace;

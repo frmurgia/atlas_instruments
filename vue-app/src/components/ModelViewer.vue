@@ -1,33 +1,37 @@
 <template>
   <div ref="container" class="model-viewer">
-    <canvas ref="canvas"></canvas>
-    <!-- Feature text overlays -->
-    <transition name="fade">
-      <div v-if="activeSection === 0" class="overlay-text overlay-top" key="s0">
-        <div class="overlay-label proto-mono">FEATURE 1/3</div>
-        <h2 class="overlay-title proto-mono"><span>10</span><br>TRACKS</h2>
-        <p class="overlay-desc">Ten independent audio tracks with individual control. 75mm linear faders, RGB LED VU meters for real-time monitoring. 24-bit/48kHz WAV recording.</p>
+    <div class="split-layout" :class="layoutClass">
+      <!-- Text panel -->
+      <div class="text-panel">
+        <transition name="fade" mode="out-in">
+          <div v-if="activeSection === 0" key="s0" class="text-content">
+            <div class="overlay-label proto-mono">FEATURE 1/3</div>
+            <h2 class="overlay-title proto-mono"><span>10</span><br>TRACKS</h2>
+            <p class="overlay-desc">Ten independent audio tracks with individual control. 75mm linear faders, RGB LED VU meters for real-time monitoring. 24-bit/48kHz WAV recording.</p>
+          </div>
+          <div v-else-if="activeSection === 1" key="s1" class="text-content">
+            <div class="overlay-label proto-mono">FEATURE 2/3</div>
+            <h2 class="overlay-title proto-mono"><span>3 MIDI</span><br>OUTPUTS</h2>
+            <p class="overlay-desc">Three fully independent MIDI 5-pin DIN outputs. Sync modular synths, drum machines and external effects with your loops. Customizable MIDI CC control.</p>
+          </div>
+          <div v-else-if="activeSection === 2" key="s2" class="text-content">
+            <div class="overlay-label proto-mono">FEATURE 3/3</div>
+            <h2 class="overlay-title proto-mono"><span>NO</span><br>SCREEN</h2>
+            <p class="overlay-desc">Fully physical interface. Zero menus, zero distractions. Immediate control with faders, rotary encoders, toggle switches and multicolor LEDs. Tactile and intuitive workflow.</p>
+          </div>
+          <div v-else key="empty" class="text-content"></div>
+        </transition>
       </div>
-    </transition>
-    <transition name="fade">
-      <div v-if="activeSection === 1" class="overlay-text overlay-back" key="s1">
-        <div class="overlay-label proto-mono">FEATURE 2/3</div>
-        <h2 class="overlay-title proto-mono"><span>3 MIDI</span><br>OUTPUTS</h2>
-        <p class="overlay-desc">Three fully independent MIDI 5-pin DIN outputs. Sync modular synths, drum machines and external effects with your loops. Customizable MIDI CC control.</p>
+      <!-- 3D canvas panel -->
+      <div class="canvas-panel">
+        <canvas ref="canvas"></canvas>
       </div>
-    </transition>
-    <transition name="fade">
-      <div v-if="activeSection === 2" class="overlay-text overlay-quarter" key="s2">
-        <div class="overlay-label proto-mono">FEATURE 3/3</div>
-        <h2 class="overlay-title proto-mono"><span>NO</span><br>SCREEN</h2>
-        <p class="overlay-desc">Fully physical interface. Zero menus, zero distractions. Immediate control with faders, rotary encoders, toggle switches and multicolor LEDs. Tactile and intuitive workflow.</p>
-      </div>
-    </transition>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
@@ -40,23 +44,30 @@ const canvas = ref(null)
 
 const activeSection = computed(() => {
   const p = props.scrollProgress
-  if (p < 0.15) return -1      // transitioning in
-  if (p < 0.38) return 0       // top view — 10 TRACKS
-  if (p < 0.62) return 1       // back view — 3 MIDI OUTPUTS
-  if (p < 0.88) return 2       // 3/4 view — NO SCREEN
-  return -1                     // transitioning out
+  if (p < 0.10) return -1
+  if (p < 0.35) return 0     // 10 TRACKS — model RIGHT
+  if (p < 0.60) return 1     // 3 MIDI OUTPUTS — model LEFT
+  if (p < 0.90) return 2     // NO SCREEN — model RIGHT
+  return -1
 })
 
-// Camera keyframes: [scrollProgress, cameraX, cameraY, cameraZ, lookAtX, lookAtY, lookAtZ]
+// Layout flips: model-right, model-left, model-right
+const layoutClass = computed(() => {
+  const s = activeSection.value
+  if (s === 1) return 'model-left'
+  return 'model-right'
+})
+
+// Camera keyframes — top view, back view, 3/4 view
 const keyframes = [
-  { t: 0.00, pos: [0,  3.0,  0.5], look: [0, 0, 0] },   // top-ish (entering)
-  { t: 0.15, pos: [0,  2.8,  0.3], look: [0, 0, 0] },   // top view — 10 TRACKS
-  { t: 0.38, pos: [0,  2.8,  0.3], look: [0, 0, 0] },   // hold top view
-  { t: 0.50, pos: [0,  0.3, -2.5], look: [0, 0, 0] },   // back view — 3 MIDI OUTPUTS
-  { t: 0.62, pos: [0,  0.3, -2.5], look: [0, 0, 0] },   // hold back view
-  { t: 0.75, pos: [1.8, 1.5,  1.8], look: [0, 0, 0] },  // 3/4 view — NO SCREEN
-  { t: 0.88, pos: [1.8, 1.5,  1.8], look: [0, 0, 0] },  // hold 3/4
-  { t: 1.00, pos: [2.5, 2.0,  2.5], look: [0, 0, 0] },  // zoom out exit
+  { t: 0.00, pos: [0,  3.0,  0.5], look: [0, 0, 0] },
+  { t: 0.10, pos: [0,  2.8,  0.3], look: [0, 0, 0] },   // top view
+  { t: 0.35, pos: [0,  2.8,  0.3], look: [0, 0, 0] },   // hold
+  { t: 0.48, pos: [0,  0.3, -2.5], look: [0, 0, 0] },   // back view
+  { t: 0.60, pos: [0,  0.3, -2.5], look: [0, 0, 0] },   // hold
+  { t: 0.73, pos: [1.8, 1.5,  1.8], look: [0, 0, 0] },  // 3/4 view
+  { t: 0.90, pos: [1.8, 1.5,  1.8], look: [0, 0, 0] },  // hold
+  { t: 1.00, pos: [2.5, 2.0,  2.5], look: [0, 0, 0] },  // exit
 ]
 
 let renderer, scene, camera, model
@@ -65,7 +76,6 @@ let currentPos = new THREE.Vector3(0, 3.0, 0.5)
 let currentLook = new THREE.Vector3(0, 0, 0)
 
 function lerpKeyframes(progress) {
-  // Find the two keyframes we're between
   let k0 = keyframes[0]
   let k1 = keyframes[keyframes.length - 1]
 
@@ -79,7 +89,6 @@ function lerpKeyframes(progress) {
 
   const range = k1.t - k0.t
   const localT = range > 0 ? (progress - k0.t) / range : 0
-  // Smooth step easing
   const t = localT * localT * (3 - 2 * localT)
 
   return {
@@ -97,12 +106,13 @@ function lerpKeyframes(progress) {
 }
 
 function initScene() {
-  const w = container.value.clientWidth
-  const h = container.value.clientHeight
+  const canvasEl = canvas.value
+  const panel = canvasEl.parentElement
+  const w = panel.clientWidth
+  const h = panel.clientHeight
 
-  // Renderer
   renderer = new THREE.WebGLRenderer({
-    canvas: canvas.value,
+    canvas: canvasEl,
     antialias: true,
     alpha: true
   })
@@ -111,16 +121,13 @@ function initScene() {
   renderer.toneMapping = THREE.ACESFilmicToneMapping
   renderer.toneMappingExposure = 1.4
 
-  // Scene — no background so the CSS mint + grid shows through
   scene = new THREE.Scene()
   renderer.setClearColor(0x000000, 0)
 
-  // Camera
   camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100)
   camera.position.set(0, 3.0, 0.5)
   camera.lookAt(0, 0, 0)
 
-  // Lighting
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.6)
   scene.add(ambientLight)
 
@@ -136,12 +143,9 @@ function initScene() {
   dirLight3.position.set(0, -3, 0)
   scene.add(dirLight3)
 
-  // Load model
   const loader = new GLTFLoader()
   loader.load('/tenlooper.glb', (gltf) => {
     model = gltf.scene
-
-    // Override material for nicer look
     model.traverse((child) => {
       if (child.isMesh) {
         child.material = new THREE.MeshStandardMaterial({
@@ -151,7 +155,6 @@ function initScene() {
         })
       }
     })
-
     scene.add(model)
   })
 
@@ -163,7 +166,6 @@ function animate() {
 
   const target = lerpKeyframes(props.scrollProgress)
 
-  // Smooth interpolation toward target
   currentPos.x += (target.pos[0] - currentPos.x) * 0.08
   currentPos.y += (target.pos[1] - currentPos.y) * 0.08
   currentPos.z += (target.pos[2] - currentPos.z) * 0.08
@@ -180,9 +182,10 @@ function animate() {
 }
 
 function onResize() {
-  if (!container.value || !renderer) return
-  const w = container.value.clientWidth
-  const h = container.value.clientHeight
+  if (!canvas.value || !renderer) return
+  const panel = canvas.value.parentElement
+  const w = panel.clientWidth
+  const h = panel.clientHeight
   renderer.setSize(w, h)
   camera.aspect = w / h
   camera.updateProjectionMatrix()
@@ -196,9 +199,7 @@ onMounted(() => {
 onUnmounted(() => {
   cancelAnimationFrame(animationId)
   window.removeEventListener('resize', onResize)
-  if (renderer) {
-    renderer.dispose()
-  }
+  if (renderer) renderer.dispose()
 })
 </script>
 
@@ -209,32 +210,42 @@ onUnmounted(() => {
   height: 100%;
 }
 
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+  transition: none;
+}
+
+/* model-right: text LEFT, canvas RIGHT */
+.split-layout.model-right .text-panel { order: 1; }
+.split-layout.model-right .canvas-panel { order: 2; }
+
+/* model-left: canvas LEFT, text RIGHT */
+.split-layout.model-left .text-panel { order: 2; }
+.split-layout.model-left .canvas-panel { order: 1; }
+
+.text-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem;
+}
+
+.text-content {
+  max-width: 600px;
+}
+
+.canvas-panel {
+  position: relative;
+  overflow: hidden;
+}
+
 canvas {
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.overlay-text {
-  position: absolute;
-  max-width: 650px;
-  pointer-events: none;
-}
-
-.overlay-top {
-  bottom: 8%;
-  left: 6%;
-}
-
-.overlay-back {
-  top: 10%;
-  right: 6%;
-  text-align: right;
-}
-
-.overlay-quarter {
-  bottom: 10%;
-  left: 6%;
 }
 
 .overlay-label {
@@ -247,7 +258,7 @@ canvas {
 }
 
 .overlay-title {
-  font-size: clamp(4rem, 12vw, 10rem);
+  font-size: clamp(4rem, 10vw, 8rem);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -264,42 +275,37 @@ canvas {
   max-width: 520px;
 }
 
-.overlay-back .overlay-desc {
-  margin-left: auto;
-}
-
 /* Fade transition */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .fade-enter-from {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(25px);
 }
 .fade-leave-to {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-15px);
 }
 
 @media (max-width: 768px) {
-  .overlay-text {
-    max-width: 280px;
+  .split-layout {
+    grid-template-columns: 1fr;
   }
-  .overlay-top {
-    bottom: 5%;
-    left: 4%;
+  .text-panel {
+    padding: 2rem 1.5rem;
+    order: 2 !important;
   }
-  .overlay-back {
-    top: 5%;
-    right: 4%;
+  .canvas-panel {
+    order: 1 !important;
+    min-height: 50vh;
   }
-  .overlay-quarter {
-    bottom: 5%;
-    left: 4%;
+  .overlay-title {
+    font-size: clamp(3rem, 10vw, 5rem);
   }
   .overlay-desc {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }
 </style>
