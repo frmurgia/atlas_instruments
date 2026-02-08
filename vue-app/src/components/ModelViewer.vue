@@ -217,7 +217,7 @@ canvas {
 
 .overlay-text {
   position: absolute;
-  max-width: 500px;
+  max-width: 650px;
   pointer-events: none;
 }
 
@@ -238,7 +238,7 @@ canvas {
 }
 
 .overlay-label {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--yellow);
   font-weight: 700;
   text-transform: uppercase;
@@ -247,7 +247,7 @@ canvas {
 }
 
 .overlay-title {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -259,9 +259,9 @@ canvas {
 }
 
 .overlay-desc {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.6;
-  max-width: 420px;
+  max-width: 520px;
 }
 
 .overlay-back .overlay-desc {
