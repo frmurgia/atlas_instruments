@@ -1,21 +1,20 @@
 <template>
   <section class="feature-section">
     <div class="features-split" :class="{ 'image-right': !imageLeft }">
-      <div v-if="imageLeft" class="feature-image-wrapper">
+      <div class="feature-image-wrapper">
         <div class="feature-image-placeholder">
           [{{ placeholder }}]
         </div>
       </div>
       <div class="feature-text">
-        <h2 class="feature-title proto-mono">
-          <span>{{ titleNumber }}</span><br>{{ titleText }}
-        </h2>
-        <p class="feature-description">{{ description }}</p>
-        <div class="feature-label proto-mono">{{ label }}</div>
-      </div>
-      <div v-if="!imageLeft" class="feature-image-wrapper">
-        <div class="feature-image-placeholder">
-          [{{ placeholder }}]
+        <div class="feature-text-top">
+          <h2 class="feature-title proto-mono">
+            <span>{{ titleNumber }}</span><br>{{ titleText }}
+          </h2>
+        </div>
+        <div class="feature-text-bottom">
+          <p class="feature-description">{{ description }}</p>
+          <div class="feature-label proto-mono">{{ label }}</div>
         </div>
       </div>
     </div>
@@ -38,40 +37,55 @@ defineProps({
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 3rem;
+  padding: 2rem 2rem;
   overflow: hidden;
 }
 
 .features-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
+  grid-template-columns: 55% 1fr;
+  gap: 3rem;
   width: 100%;
-  max-width: 1400px;
+}
+
+.features-split.image-right {
+  grid-template-columns: 1fr 55%;
+}
+
+.features-split.image-right .feature-image-wrapper {
+  order: 2;
+}
+
+.features-split.image-right .feature-text {
+  order: 1;
 }
 
 .feature-image-wrapper {
   overflow: hidden;
+  border-radius: 16px;
 }
 
 .feature-image-placeholder {
   width: 100%;
-  min-height: 600px;
+  height: 100%;
+  min-height: 85vh;
   background: var(--gray-light);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #999;
   font-size: 1rem;
-  border-radius: 16px;
 }
 
 .feature-text {
-  padding: 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.feature-text-top {
+  padding-top: 1rem;
 }
 
 .feature-title {
@@ -79,17 +93,21 @@ defineProps({
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  margin-bottom: 2rem;
 }
 
 .feature-title span {
   color: var(--yellow);
 }
 
+.feature-text-bottom {
+  padding-bottom: 1rem;
+}
+
 .feature-description {
   font-size: 1.15rem;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  max-width: 480px;
 }
 
 .feature-label {
@@ -102,19 +120,28 @@ defineProps({
 
 @media (max-width: 768px) {
   .feature-section {
-    padding: 0 1.5rem;
+    padding: 1rem 1rem;
   }
-  .features-split {
+  .features-split,
+  .features-split.image-right {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .feature-text {
-    padding: 2rem;
+  .features-split.image-right .feature-image-wrapper {
+    order: 0;
+  }
+  .features-split.image-right .feature-text {
+    order: 0;
   }
   .feature-image-placeholder {
-    min-height: 300px;
+    min-height: 50vh;
   }
   .feature-title {
     font-size: clamp(3rem, 10vw, 5rem);
+  }
+  .feature-text {
+    padding: 0 0.5rem;
+    gap: 2rem;
   }
 }
 </style>
