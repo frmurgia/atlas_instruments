@@ -89,7 +89,7 @@ defineProps({
 }
 
 .feature-title {
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(5rem, 12vw, 10rem);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
@@ -104,10 +104,13 @@ defineProps({
 }
 
 .feature-description {
-  font-size: 1.15rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   margin-bottom: 1rem;
-  max-width: 480px;
+  max-width: 520px;
 }
 
 .feature-label {
@@ -137,7 +140,7 @@ defineProps({
     min-height: 50vh;
   }
   .feature-title {
-    font-size: clamp(3rem, 10vw, 5rem);
+    font-size: clamp(3.5rem, 12vw, 6rem);
   }
   .feature-text {
     padding: 0 0.5rem;
