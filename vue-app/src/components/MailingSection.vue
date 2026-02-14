@@ -2,7 +2,7 @@
   <section class="cta-section" id="mailing">
     <div ref="el" class="cta-inner" :style="style">
       <h2 class="cta-title proto-mono">
-        <span>SIGN UP</span> TO THE MAILING LIST TO STAY IN TUNE WITH THE LAST UPDATES
+        <span>SIGN UP</span> TO THE MAILING LIST TO STAY IN TUNE WITH THE LATEST UPDATES
       </h2>
     </div>
   </section>
@@ -27,7 +27,7 @@ const { el, style } = useScrollAnimation({
   align-items: center;
   justify-content: center;
   padding: 0 3rem;
-  background: var(--white);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -47,7 +47,7 @@ const { el, style } = useScrollAnimation({
 }
 
 .cta-title span {
-  color: var(--orange);
+  color: var(--yellow);
 }
 
 @media (max-width: 768px) {

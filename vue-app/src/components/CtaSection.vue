@@ -2,7 +2,7 @@
   <section class="cta-section" id="preorder">
     <div ref="el" class="cta-inner" :style="style">
       <h2 class="cta-title proto-mono">
-        <span>PRE-ORDER</span> THE FIRST PRODUCTION RUN TO SECURE YOUR TENLOOPER
+        <span>PRE-ORDER</span> THE FIRST PRODUCTION RUN TO SECURE YOUR TENLOOP
       </h2>
       <div class="signup-counter proto-mono">
         &euro;399
@@ -31,7 +31,7 @@ const { el, style } = useScrollAnimation({
   align-items: center;
   justify-content: center;
   padding: 0 3rem;
-  background: var(--white);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -51,7 +51,7 @@ const { el, style } = useScrollAnimation({
 }
 
 .cta-title span {
-  color: var(--orange);
+  color: var(--yellow);
 }
 
 .signup-counter {

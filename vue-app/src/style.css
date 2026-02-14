@@ -6,12 +6,14 @@
 }
 
 :root {
-  --orange: #FF4500;
-  --black: #000000;
+  --yellow: #E8D44D;
+  --mint: #A8D8BA;
+  --black: #1a1a1a;
   --white: #FFFFFF;
-  --gray-light: #F5F5F5;
-  --grid-color: rgba(0, 0, 0, 0.06);
+  --gray-light: #F0F5F1;
+  --grid-color: rgba(0, 0, 0, 0.07);
   --grid-size: 80px;
+  --accent: var(--yellow);
 }
 
 * {
@@ -26,10 +28,20 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  background: var(--white);
+  background: var(--mint);
   color: var(--black);
   line-height: 1.4;
   overflow-x: hidden;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+::-moz-selection {
+  background: var(--yellow);
+  color: var(--black);
 }
 
 h1, h2, h3,

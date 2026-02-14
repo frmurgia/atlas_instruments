@@ -3,17 +3,12 @@
     <div class="hero-inner">
       <div class="hero-top">
         <div class="hero-left">
-          <div class="hero-tagline proto-mono">NEW WAYS OF LOOPING</div>
+          <div class="hero-tagline proto-mono">TEN WAYS OF LOOPING</div>
           <h1 ref="el" class="hero-title proto-mono" :style="style">
-            TEN<br>LOOPER
+            TEN<br>LOOP
           </h1>
         </div>
         <div ref="modelEl" class="model-number proto-mono" :style="modelStyle">TL-01</div>
-      </div>
-      <div class="hero-image">
-        <div ref="imageEl" class="hero-image-placeholder" :style="imageStyle">
-          [PRODUCT PHOTO]
-        </div>
       </div>
     </div>
   </section>
@@ -37,14 +32,6 @@ const { el: modelEl, style: modelStyle } = useScrollAnimation({
   translateZRange: [0, 0, -120],
   easing: 0.05
 })
-
-const { el: imageEl, style: imageStyle } = useScrollAnimation({
-  rotateXRange: [0, 0, 15],
-  rotateYRange: [0, 0, -3],
-  scaleRange: [1, 1, 0.88],
-  translateZRange: [0, 0, -150],
-  easing: 0.04
-})
 </script>
 
 <style scoped>
@@ -66,7 +53,6 @@ const { el: imageEl, style: imageStyle } = useScrollAnimation({
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 3rem;
 }
 
 .hero-tagline {
@@ -91,25 +77,6 @@ const { el: imageEl, style: imageStyle } = useScrollAnimation({
   will-change: transform;
 }
 
-.hero-image {
-  width: 100%;
-  max-width: 1200px;
-  perspective: 1200px;
-}
-
-.hero-image-placeholder {
-  width: 100%;
-  height: 500px;
-  background: var(--gray-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: #999;
-  will-change: transform;
-  transform-origin: center center;
-}
-
 @media (max-width: 768px) {
   .hero {
     padding: 0 1.5rem;
@@ -123,10 +90,6 @@ const { el: imageEl, style: imageStyle } = useScrollAnimation({
 
   .model-number {
     text-align: left;
-  }
-
-  .hero-image-placeholder {
-    height: 300px;
   }
 }
 </style>
