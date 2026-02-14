@@ -23,16 +23,20 @@ import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { useScrollAnimation } from '../composables/useScrollAnimation.js'
 
 const specs = [
-  { label: 'Type of device', value: 'Audio Looper' },
-  { label: 'Audio tracks', value: '10 Independent' },
-  { label: 'MIDI outputs', value: '3 x 5-pin DIN' },
-  { label: 'Audio quality', value: '24-bit / 48kHz' },
-  { label: 'DAC', value: 'PCM5102A Professional' },
-  { label: 'Processor', value: 'RK3506G ARM Cortex-A7' },
-  { label: 'Inputs', value: '10 Faders 75mm<br>1 Rotary encoder<br>1 Toggle switch' },
-  { label: 'Outputs', value: '10 LED VU meters WS2812B RGB' },
-  { label: 'Connectivity', value: 'USB Type-C<br>Ethernet gadget' },
-  { label: 'Power', value: 'USB-C 5V' }
+  { label: 'Type', value: 'Audio track player' },
+  { label: 'Audio tracks', value: '10 independent' },
+  { label: 'Audio output', value: '1 stereo (PCM5102A 32-bit DAC)' },
+  { label: 'MIDI outputs', value: '2 × 5-pin DIN' },
+  { label: 'Sync', value: 'Proprietary Sync Out/In (3.3V) for cascading multiple units' },
+  { label: 'Storage', value: '8 GB eMMC — over 14 min per track across all 100 slots' },
+  { label: 'Banks', value: '10 banks × 10 tracks = 100 tracks total' },
+  { label: 'Controls', value: '10 × 75mm linear faders, 1 rotary encoder,<br>1 toggle switch, 1 rear button' },
+  { label: 'Feedback', value: '10 × RGB LED meters (WS2812B)' },
+  { label: 'Track loading', value: 'Embedded web interface (any browser)<br>or Max for Live plugin' },
+  { label: 'Connectivity', value: 'USB Type-C (power + data)' },
+  { label: 'Power', value: 'USB-C 5V' },
+  { label: 'Case', value: 'SLS Nylon PA 11 (bio-based)' },
+  { label: 'Designed and assembled', value: 'Sardinia, Italy' }
 ]
 
 const { el: titleEl, style: titleStyle } = useScrollAnimation({

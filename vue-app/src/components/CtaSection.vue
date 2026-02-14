@@ -1,13 +1,12 @@
 <template>
   <section class="cta-section" id="preorder">
     <div ref="el" class="cta-inner" :style="style">
-      <h2 class="cta-title proto-mono">
-        <span>PRE-ORDER</span> THE FIRST PRODUCTION RUN TO SECURE YOUR TENLOOP
-      </h2>
       <div class="signup-counter proto-mono">
-        &euro;399
-        <small>Q4 2026 delivery</small>
+        &euro;350
       </div>
+      <h2 class="cta-title proto-mono">
+        <span>Pre-order</span> — delivery Q4 2026
+      </h2>
     </div>
   </section>
 </template>

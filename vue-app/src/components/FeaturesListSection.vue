@@ -23,14 +23,16 @@ import { ref, reactive, onMounted, onUnmounted } from 'vue'
 import { useScrollAnimation } from '../composables/useScrollAnimation.js'
 
 const features = [
-  { label: '10-track looping', value: 'Independent overdub & sync' },
-  { label: '3 MIDI outputs', value: 'Control modular synths' },
-  { label: 'No screen design', value: 'Physical interface only' },
-  { label: 'LED VU meters', value: 'Real-time monitoring' },
-  { label: 'Embedded Linux', value: 'Updatable via USB' },
-  { label: 'Web interface', value: 'Upload WAV files' },
-  { label: 'Mixer integration', value: 'Dedicated audio outs' },
-  { label: 'Live performance', value: 'Zero latency' }
+  { label: '10-track playback', value: 'Independent volume per track' },
+  { label: '2 MIDI outputs', value: 'Sync your entire modular setup' },
+  { label: 'No screen', value: 'Physical-only, muscle memory operation' },
+  { label: 'LED meters', value: 'Real-time visual feedback per track' },
+  { label: '100 track slots', value: '10 banks × 10 tracks' },
+  { label: 'Sync cascade', value: 'Connect multiple units for 20+ tracks' },
+  { label: 'Web interface', value: 'Load WAV files from any browser' },
+  { label: 'Max for Live', value: 'Manage tracks directly from Ableton' },
+  { label: 'Embedded Linux', value: 'Updatable firmware via USB' },
+  { label: 'Bio-based case', value: 'Nylon PA 11, printed in Sardinia' }
 ]
 
 const { el: titleEl, style: titleStyle } = useScrollAnimation({
