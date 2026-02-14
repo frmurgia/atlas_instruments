@@ -2,11 +2,11 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 export function useScrollAnimation(options = {}) {
   const {
-    rotateXRange = [-15, 0, 10],
-    rotateYRange = [20, 0, -20],
-    scaleRange = [0.7, 1, 0.85],
-    translateZRange = [-200, 0, -100],
-    easing = 0.08
+    rotateXRange = [-2, 0, 1],
+    rotateYRange = [2, 0, -2],
+    scaleRange = [0.98, 1, 0.99],
+    translateZRange = [-20, 0, -10],
+    easing = 0.06
   } = options
 
   const el = ref(null)
@@ -16,7 +16,7 @@ export function useScrollAnimation(options = {}) {
   })
 
   let raf = null
-  let current = { rotateX: 0, rotateY: 0, scale: 0.7, translateZ: -200, opacity: 0 }
+  let current = { rotateX: 0, rotateY: 0, scale: 0.98, translateZ: -20, opacity: 0 }
   let target = { ...current }
 
   function lerp(a, b, t) {

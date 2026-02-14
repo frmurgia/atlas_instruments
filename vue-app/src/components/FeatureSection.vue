@@ -1,6 +1,6 @@
 <template>
   <section class="feature-section">
-    <div ref="el" class="features-split" :class="{ 'image-right': !imageLeft }" :style="style">
+    <div class="features-split" :class="{ 'image-right': !imageLeft }">
       <div v-if="imageLeft" class="feature-image-wrapper">
         <div class="feature-image-placeholder">
           [{{ placeholder }}]
@@ -23,24 +23,13 @@
 </template>
 
 <script setup>
-import { useScrollAnimation } from '../composables/useScrollAnimation.js'
-
-const props = defineProps({
+defineProps({
   titleNumber: String,
   titleText: String,
   description: String,
   label: String,
   placeholder: String,
-  imageLeft: { type: Boolean, default: true },
-  animateConfig: { type: Object, default: () => ({}) }
-})
-
-const { el, style } = useScrollAnimation({
-  rotateXRange: props.animateConfig.rotateXRange || [-12, 0, 8],
-  rotateYRange: props.animateConfig.rotateYRange || [20, 0, -15],
-  scaleRange: props.animateConfig.scaleRange || [0.65, 1, 0.9],
-  translateZRange: props.animateConfig.translateZRange || [-250, 0, -80],
-  easing: 0.06
+  imageLeft: { type: Boolean, default: true }
 })
 </script>
 
@@ -60,8 +49,6 @@ const { el, style } = useScrollAnimation({
   gap: 0;
   width: 100%;
   max-width: 1400px;
-  will-change: transform;
-  transform-style: preserve-3d;
 }
 
 .feature-image-wrapper {
@@ -77,6 +64,7 @@ const { el, style } = useScrollAnimation({
   justify-content: center;
   color: #999;
   font-size: 1rem;
+  border-radius: 16px;
 }
 
 .feature-text {

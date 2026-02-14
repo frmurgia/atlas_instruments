@@ -24,7 +24,6 @@ import FloatingButton from './components/FloatingButton.vue'
       label="FEATURE 1/3"
       placeholder="FEATURE PHOTO 1"
       :image-left="true"
-      :animate-config="{ rotateXRange: [-12, 0, 8], rotateYRange: [25, 0, -15], scaleRange: [0.65, 1, 0.9] }"
     />
     <FeatureSection
       title-number="3 MIDI"
@@ -33,7 +32,6 @@ import FloatingButton from './components/FloatingButton.vue'
       label="FEATURE 2/3"
       placeholder="FEATURE PHOTO 2"
       :image-left="false"
-      :animate-config="{ rotateXRange: [-10, 0, 12], rotateYRange: [-20, 0, 18], scaleRange: [0.6, 1, 0.85] }"
     />
     <FeatureSection
       title-number="NO"
@@ -42,7 +40,6 @@ import FloatingButton from './components/FloatingButton.vue'
       label="FEATURE 3/3"
       placeholder="FEATURE PHOTO 3"
       :image-left="true"
-      :animate-config="{ rotateXRange: [-8, 0, 15], rotateYRange: [30, 0, -10], scaleRange: [0.7, 1, 0.88] }"
     />
 
     <SpecsSection />

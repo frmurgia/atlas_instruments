@@ -12,11 +12,11 @@
 import { useScrollAnimation } from '../composables/useScrollAnimation.js'
 
 const { el, style } = useScrollAnimation({
-  rotateXRange: [-6, 0, 4],
-  rotateYRange: [12, 0, -6],
-  scaleRange: [0.8, 1, 0.95],
-  translateZRange: [-100, 0, -30],
-  easing: 0.07
+  rotateXRange: [-1, 0, 1],
+  rotateYRange: [1, 0, -1],
+  scaleRange: [0.98, 1, 0.99],
+  translateZRange: [-10, 0, -5],
+  easing: 0.06
 })
 </script>
 

@@ -18,19 +18,19 @@
 import { useScrollAnimation } from '../composables/useScrollAnimation.js'
 
 const { el, style } = useScrollAnimation({
-  rotateXRange: [0, 0, 8],
-  rotateYRange: [0, 0, -5],
-  scaleRange: [1, 1, 0.92],
-  translateZRange: [0, 0, -80],
-  easing: 0.06
+  rotateXRange: [0, 0, 2],
+  rotateYRange: [0, 0, -1],
+  scaleRange: [1, 1, 0.98],
+  translateZRange: [0, 0, -15],
+  easing: 0.05
 })
 
 const { el: modelEl, style: modelStyle } = useScrollAnimation({
-  rotateXRange: [0, 0, 12],
-  rotateYRange: [0, 0, 10],
-  scaleRange: [1, 1, 0.85],
-  translateZRange: [0, 0, -120],
-  easing: 0.05
+  rotateXRange: [0, 0, 3],
+  rotateYRange: [0, 0, 2],
+  scaleRange: [1, 1, 0.97],
+  translateZRange: [0, 0, -20],
+  easing: 0.04
 })
 </script>
 

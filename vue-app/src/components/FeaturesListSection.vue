@@ -34,11 +34,11 @@ const features = [
 ]
 
 const { el: titleEl, style: titleStyle } = useScrollAnimation({
-  rotateXRange: [-10, 0, 5],
-  rotateYRange: [12, 0, -8],
-  scaleRange: [0.65, 1, 0.95],
-  translateZRange: [-180, 0, -40],
-  easing: 0.07
+  rotateXRange: [-2, 0, 1],
+  rotateYRange: [2, 0, -1],
+  scaleRange: [0.97, 1, 0.99],
+  translateZRange: [-15, 0, -5],
+  easing: 0.06
 })
 
 const featRefs = ref([])
@@ -58,7 +58,7 @@ function lerp(a, b, t) {
 }
 
 const currents = features.map(() => ({ x: 0, opacity: 0 }))
-const targets = features.map(() => ({ x: 60, opacity: 0 }))
+const targets = features.map(() => ({ x: 20, opacity: 0 }))
 
 function animate() {
   featRefs.value.forEach((el, i) => {
@@ -72,7 +72,7 @@ function animate() {
       targets[i].x = 0
       targets[i].opacity = 1
     } else {
-      targets[i].x = 60 + i * 10
+      targets[i].x = 20 + i * 4
       targets[i].opacity = 0
     }
 

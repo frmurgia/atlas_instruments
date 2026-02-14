@@ -36,11 +36,11 @@ const specs = [
 ]
 
 const { el: titleEl, style: titleStyle } = useScrollAnimation({
-  rotateXRange: [-10, 0, 5],
-  rotateYRange: [15, 0, -10],
-  scaleRange: [0.6, 1, 0.95],
-  translateZRange: [-200, 0, -50],
-  easing: 0.07
+  rotateXRange: [-2, 0, 1],
+  rotateYRange: [2, 0, -1],
+  scaleRange: [0.97, 1, 0.99],
+  translateZRange: [-15, 0, -5],
+  easing: 0.06
 })
 
 // Per-row staggered animations
@@ -61,7 +61,7 @@ function lerp(a, b, t) {
 }
 
 const currents = specs.map(() => ({ x: 0, opacity: 0 }))
-const targets = specs.map(() => ({ x: 60, opacity: 0 }))
+const targets = specs.map(() => ({ x: 20, opacity: 0 }))
 
 function animate() {
   specRefs.value.forEach((el, i) => {
@@ -74,7 +74,7 @@ function animate() {
       targets[i].x = 0
       targets[i].opacity = 1
     } else {
-      targets[i].x = 60 + i * 10
+      targets[i].x = 20 + i * 4
       targets[i].opacity = 0
     }
 
