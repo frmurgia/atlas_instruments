@@ -3,10 +3,9 @@
     <div class="how-wrapper">
       <h2 ref="titleEl" class="section-title proto-mono" :style="titleStyle">HOW IT WORKS</h2>
       <div class="how-body">
-        <p>TenLooper separates two moments that other devices mix together: preparing and performing.</p>
-        <p>At home, press the rear button during startup to enter configuration mode. TenLooper creates a local web page — open it from any browser on your phone, tablet or computer, drag your WAV files in, assign them to tracks and banks. If you work in Ableton Live, a dedicated Max for Live plugin lets you manage everything without leaving your session.</p>
-        <p>On stage, none of that exists. You get one toggle switch, ten faders and ten LED meters. That's it. Flip the switch, the entire set starts in sync. Adjust levels on the fly. Read the LEDs to see what each track is doing — a rhythmic pattern looks different from a pad or a melodic line. No configuration, no troubleshooting, no laptop.</p>
-        <p>Need more than 10 tracks? Connect two or more TenLoopers via the Sync port. 20, 30 or more tracks, perfectly synchronized, zero computers.</p>
+        <p>At home, load WAV files via the web interface or the Max for Live plugin. Assign tracks to banks — done.</p>
+        <p>On stage, flip the switch. Ten faders, ten LED meters, zero screens. Everything plays in sync.</p>
+        <p>Need more? Chain multiple TenLoopers via the Sync port. 20, 30, 40+ tracks — zero computers.</p>
       </div>
     </div>
   </section>

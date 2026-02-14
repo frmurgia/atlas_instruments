@@ -4,10 +4,8 @@ import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import FeatureSection from './components/FeatureSection.vue'
 import HowItWorksSection from './components/HowItWorksSection.vue'
-import WhatItReplacesSection from './components/WhatItReplacesSection.vue'
 import SpecsSection from './components/SpecsSection.vue'
 import CtaSection from './components/CtaSection.vue'
-import FeaturesListSection from './components/FeaturesListSection.vue'
 import MailingSection from './components/MailingSection.vue'
 import FloatingButton from './components/FloatingButton.vue'
 </script>
@@ -45,10 +43,8 @@ import FloatingButton from './components/FloatingButton.vue'
     />
 
     <HowItWorksSection />
-    <WhatItReplacesSection />
     <SpecsSection />
     <CtaSection />
-    <FeaturesListSection />
     <MailingSection />
   </main>
 </template>
