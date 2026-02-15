@@ -135,11 +135,13 @@ const imgError = ref(false)
 
 .feature-label {
   font-size: 1rem;
-  color: var(--yellow);
+  color: var(--black);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  text-decoration: underline;
+  background: var(--yellow);
+  display: inline;
+  padding: 0.2em 0.4em;
 }
 
 @media (max-width: 768px) {
