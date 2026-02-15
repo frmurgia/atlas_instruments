@@ -139,6 +139,7 @@ const imgError = ref(false)
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
