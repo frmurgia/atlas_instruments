@@ -23,6 +23,7 @@ import FloatingButton from './components/FloatingButton.vue'
       description="Ten independent audio tracks, each with its own 75mm linear fader and RGB LED meter. Load your set, press play, perform. Every track starts and stops in perfect sync with a single button press."
       label="FEATURE 1/3"
       placeholder="FEATURE PHOTO 1"
+      image="./features/01.jpg"
       :image-left="true"
     />
     <FeatureSection
@@ -31,6 +32,7 @@ import FloatingButton from './components/FloatingButton.vue'
       description="Two independent MIDI 5-pin DIN outputs to sync your modular synths, drum machines and external gear. TenLooper sits at the center of your setup and keeps everything locked in time."
       label="FEATURE 2/3"
       placeholder="FEATURE PHOTO 2"
+      image="./features/02.jpg"
       :image-left="false"
     />
     <FeatureSection
@@ -39,6 +41,7 @@ import FloatingButton from './components/FloatingButton.vue'
       description="No menus. No submenus. No scrolling. Every control does one thing. After a few sessions you'll operate it without looking — muscle memory takes over and your attention stays where it belongs: on the music."
       label="FEATURE 3/3"
       placeholder="FEATURE PHOTO 3"
+      image="./features/03.jpg"
       :image-left="true"
     />
 

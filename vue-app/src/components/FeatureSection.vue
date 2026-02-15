@@ -2,7 +2,14 @@
   <section class="feature-section">
     <div class="features-split" :class="{ 'image-right': !imageLeft }">
       <div class="feature-image-wrapper">
-        <div class="feature-image-placeholder">
+        <img
+          v-if="!imgError"
+          :src="image"
+          :alt="titleNumber + ' ' + titleText"
+          class="feature-image"
+          @error="imgError = true"
+        >
+        <div v-else class="feature-image-placeholder">
           [{{ placeholder }}]
         </div>
       </div>
@@ -22,14 +29,19 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 defineProps({
   titleNumber: String,
   titleText: String,
   description: String,
   label: String,
   placeholder: String,
+  image: String,
   imageLeft: { type: Boolean, default: true }
 })
+
+const imgError = ref(false)
 </script>
 
 <style scoped>
@@ -63,6 +75,14 @@ defineProps({
 .feature-image-wrapper {
   overflow: hidden;
   border-radius: 16px;
+}
+
+.feature-image {
+  width: 100%;
+  height: 100%;
+  min-height: 85vh;
+  object-fit: cover;
+  display: block;
 }
 
 .feature-image-placeholder {
