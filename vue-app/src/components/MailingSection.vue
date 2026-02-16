@@ -2,7 +2,7 @@
   <section class="cta-section" id="mailing">
     <div ref="el" class="cta-inner" :style="style">
       <h2 class="cta-title proto-mono">
-        <span>SIGN UP FOR UPDATES</span> Join the mailing list to get notified when pre-orders open and follow the development journey.
+        <span>SIGN UP FOR UPDATES</span> and stay tuned for the latest news.
       </h2>
     </div>
   </section>

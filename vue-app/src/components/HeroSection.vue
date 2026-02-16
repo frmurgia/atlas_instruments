@@ -3,7 +3,7 @@
     <div class="hero-inner">
       <div class="hero-top">
         <div class="hero-left">
-          <div class="hero-tagline proto-mono">TEN WAYS OF LOOPING</div>
+        
           <h1 ref="el" class="hero-title proto-mono" :style="style">
             TENLOOPER
           </h1>

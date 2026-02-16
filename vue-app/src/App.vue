@@ -38,7 +38,7 @@ import FloatingButton from './components/FloatingButton.vue'
     <FeatureSection
       title-number="NO"
       title-text="SCREEN"
-      description="No menus. No submenus. No scrolling. Every control does one thing. After a few sessions you'll operate it without looking — muscle memory takes over and your attention stays where it belongs: on the music."
+      description="No menus. No submenus. No scrolling. Every control does one thing."
       label="FEATURE 3/3"
       placeholder="FEATURE PHOTO 3"
       image="./features/03.jpg"

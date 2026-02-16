@@ -1,7 +1,7 @@
 <template>
   <section class="section-orange">
     <div class="specs-wrapper">
-      <h2 ref="titleEl" class="section-title proto-mono" :style="titleStyle">FEATURES &amp; SPECS</h2>
+      <h2 ref="titleEl" class="section-title proto-mono" :style="titleStyle">FEATURES</h2>
       <div class="specs-list">
         <template v-for="(spec, i) in specs" :key="i">
           <div
@@ -29,28 +29,15 @@ import { useScrollAnimation } from '../composables/useScrollAnimation.js'
 const specs = [
   { label: '10-track playback', value: 'Independent volume per track', section: 'features' },
   { label: '2 MIDI outputs', value: 'Sync your entire modular setup', section: 'features' },
-  { label: 'No screen', value: 'Physical-only, muscle memory operation', section: 'features' },
+  { label: 'No screen', value: 'Physical-only', section: 'features' },
   { label: 'LED meters', value: 'Real-time visual feedback per track', section: 'features' },
   { label: '100 track slots', value: '10 banks × 10 tracks', section: 'features' },
   { label: 'Sync cascade', value: 'Connect multiple units for 20+ tracks', section: 'features' },
   { label: 'Web interface', value: 'Load WAV files from any browser', section: 'features' },
   { label: 'Max for Live', value: 'Manage tracks directly from Ableton', section: 'features' },
-  { label: 'Embedded Linux', value: 'Updatable firmware via USB', section: 'features' },
   { label: 'Bio-based case', value: 'Nylon PA 11, printed in Sardinia', section: 'features' },
-  { label: 'Type', value: 'Audio track player', section: 'specs' },
-  { label: 'Audio tracks', value: '10 independent', section: 'specs' },
-  { label: 'Audio output', value: '1 stereo (PCM5102A 32-bit DAC)', section: 'specs' },
-  { label: 'MIDI outputs', value: '2 × 5-pin DIN', section: 'specs' },
-  { label: 'Sync', value: 'Proprietary Sync Out/In (3.3V) for cascading multiple units', section: 'specs' },
-  { label: 'Storage', value: '8 GB eMMC — over 14 min per track across all 100 slots', section: 'specs' },
-  { label: 'Banks', value: '10 banks × 10 tracks = 100 tracks total', section: 'specs' },
-  { label: 'Controls', value: '10 × 75mm linear faders, 1 rotary encoder,<br>1 toggle switch, 1 rear button', section: 'specs' },
-  { label: 'Feedback', value: '10 × RGB LED meters (WS2812B)', section: 'specs' },
-  { label: 'Track loading', value: 'Embedded web interface (any browser)<br>or Max for Live plugin', section: 'specs' },
-  { label: 'Connectivity', value: 'USB Type-C (power + data)', section: 'specs' },
-  { label: 'Power', value: 'USB-C 5V', section: 'specs' },
-  { label: 'Case', value: 'SLS Nylon PA 11 (bio-based)', section: 'specs' },
-  { label: 'Designed and assembled', value: 'Sardinia, Italy', section: 'specs' }
+ 
+  { label: 'Designed and assembled', value: 'Sardinia, Italy', section: 'features' }
 ]
 
 const specsStartIndex = computed(() => specs.findIndex(s => s.section === 'specs'))

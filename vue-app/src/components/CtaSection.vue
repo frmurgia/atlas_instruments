@@ -1,15 +1,4 @@
-<template>
-  <section class="cta-section" id="preorder">
-    <div ref="el" class="cta-inner" :style="style">
-      <div class="signup-counter proto-mono">
-        &euro;350
-      </div>
-      <h2 class="cta-title proto-mono">
-        <span>Pre-order</span> — delivery Q4 2026
-      </h2>
-    </div>
-  </section>
-</template>
+ 
 
 <script setup>
 import { useScrollAnimation } from '../composables/useScrollAnimation.js'
