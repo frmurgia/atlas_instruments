@@ -53,6 +53,12 @@ const { el, style } = useScrollAnimation({
 @media (max-width: 768px) {
   .cta-section {
     padding: 0 1.5rem;
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .cta-title {
+    font-size: clamp(1.5rem, 6vw, 3rem);
   }
 }
 </style>

@@ -180,6 +180,23 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .section-orange {
     padding: 4rem 1.5rem;
+    min-height: auto;
+  }
+  .section-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  .spec-item {
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.2rem 0;
+    font-size: 0.9rem;
+  }
+  .spec-value {
+    text-align: left;
+  }
+  .sub-header {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    padding-top: 2.5rem;
   }
 }
 </style>

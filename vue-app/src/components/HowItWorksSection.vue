@@ -64,6 +64,14 @@ const { el: titleEl, style: titleStyle } = useScrollAnimation({
 @media (max-width: 768px) {
   .how-section {
     padding: 4rem 1.5rem;
+    min-height: auto;
+  }
+  .section-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    margin-bottom: 2rem;
+  }
+  .how-body p {
+    font-size: 1rem;
   }
 }
 </style>

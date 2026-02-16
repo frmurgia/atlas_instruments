@@ -88,6 +88,11 @@ const { el: modelEl, style: modelStyle } = useScrollAnimation({
     gap: 1rem;
   }
 
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+    word-break: break-word;
+  }
+
   .model-number {
     text-align: left;
   }

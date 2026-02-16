@@ -146,7 +146,8 @@ const imgError = ref(false)
 
 @media (max-width: 768px) {
   .feature-section {
-    padding: 1rem 1rem;
+    min-height: auto;
+    padding: 2rem 1rem;
   }
   .features-split,
   .features-split.image-right {
@@ -159,15 +160,19 @@ const imgError = ref(false)
   .features-split.image-right .feature-text {
     order: 0;
   }
+  .feature-image,
   .feature-image-placeholder {
     min-height: 50vh;
   }
   .feature-title {
-    font-size: clamp(3.5rem, 12vw, 6rem);
+    font-size: clamp(2.5rem, 11vw, 4rem);
+  }
+  .feature-description {
+    font-size: 0.95rem;
   }
   .feature-text {
     padding: 0 0.5rem;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }
 </style>

@@ -230,18 +230,32 @@ function submit() {
 /* --- Mobile --- */
 @media (max-width: 768px) {
   .floating-wrapper {
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+  .floating-wrapper.expanded {
+    left: 1.5rem;
+    right: 1.5rem;
   }
   .floating-button {
-    width: 120px;
-    height: 120px;
-    font-size: 0.75rem;
+    width: 90px;
+    height: 90px;
+    font-size: 0.65rem;
   }
   .floating-form {
     min-width: auto;
-    width: calc(100vw - 4rem);
-    padding: 1.5rem;
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 20px;
+  }
+  .email-input {
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+  }
+  .submit-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
   }
 }
 </style>

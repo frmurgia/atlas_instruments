@@ -58,7 +58,14 @@ nav {
 
 @media (max-width: 768px) {
   nav {
-    padding: 1.5rem 1.5rem;
+    padding: 1rem 1rem;
+  }
+  .logo {
+    font-size: 0.8rem;
+  }
+  .btn-preorder {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.75rem;
   }
 }
 </style>
