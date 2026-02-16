@@ -55,13 +55,13 @@ const imgError = ref(false)
 
 .features-split {
   display: grid;
-  grid-template-columns: 55% 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
   width: 100%;
 }
 
 .features-split.image-right {
-  grid-template-columns: 1fr 55%;
+  grid-template-columns: 1fr 1fr;
 }
 
 .features-split.image-right .feature-image-wrapper {
